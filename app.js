@@ -1,15 +1,20 @@
 
-function createGrid() {
+function createGrid(gridNumber = 16) {
     const container = document.querySelector(".container");
-    container.innerHTML = "";
-    let x = 0;
-    for (let i=0; i<16; i++) {
-        for (let j=0; j<16; j++){
-        const div = document.createElement("div");
-        div.classList.add("grid")
-        container.appendChild(div)
+    container.innerHTML = ""; // Clear previous grid
+    
+    for (let i=0; i<gridNumber; i++) {
+        const row = document.createElement("div");
+        row.classList.add("row")
+        
+        for (let j=0; j<gridNumber; j++){
+        const column = document.createElement("div");
+        column.classList.add("grid")
+        row.appendChild(column)
         }
+        container.appendChild(row)
     }
 }
 
 createGrid();
+
