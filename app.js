@@ -1,11 +1,6 @@
 let enterEventCount = 0; // Persist these counters globally
 let leaveEventCount = 0;
 
-// Function to generate a random RGB color
-function getRandomColor() {
-    const rgb = Array.from({length: 3}, () => Math.floor(Math.random() * 256));
-    return `rgb(${rgb.join(",")})`;
-}
 
 // Handle button
 function getGridSize() {
@@ -46,13 +41,17 @@ function etchSketch(gridSize=16) {
         grid.addEventListener("mouseover", () => {
             grid.style.backgroundColor = getRandomColor(); // Applies the style on hover
         });
-    
-        grid.addEventListener("mouseleave", () => {
-            grid.style.backgroundColor = "white"; // Resets the style when the mouse leaves
-        });
+
     });
 
 }
+
+// Function to generate a random RGB color
+function getRandomColor() {
+    const rgb = Array.from({length: 3}, () => Math.floor(Math.random() * 256));
+    return `rgb(${rgb.join(",")})`;
+}
+
 
 // Get grid size from button
 getGridSize()
